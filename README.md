@@ -1,5 +1,5 @@
 # gips_replication_code
 
-Thir repository contains replication codes for article about `gips` R package.
+This repository contains replication codes for article about the `gips` R package.
 
-Article is available [HERE on arXiv](https://youtu.be/dQw4w9WgXcQ).
+The article is available [HERE on arXiv](https://youtu.be/dQw4w9WgXcQ).
