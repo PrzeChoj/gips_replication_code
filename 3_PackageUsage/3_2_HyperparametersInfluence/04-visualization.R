@@ -139,6 +139,7 @@ ggsave(
 
 hide_legend <- c(FALSE, TRUE, TRUE)
 plot_width <- c(7.8, 7, 7)
+x_axis_type <- "n_dim"
 
 ggsave(
   file.path(".", "plots", paste0("hyper_params_influence_", x_axis_type, "_", structures[1], ".png")),

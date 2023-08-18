@@ -55,8 +55,7 @@ p <- ncol(Z) # 4
 
 S <- cov(Z)
 
-d <- sum(diag(S)) / p
-g <- gips(S, n, D_matrix = diag(d, p))
+g <- gips(S, n)
 my_aspirin_id_ggplot <- plot_cosmetic_modifications(plot(g, type = "heatmap")) +
   ggplot2::labs(
     title = "Standard MLE estimator",
@@ -73,7 +72,7 @@ ggplot2::ggsave(
 
 
 g_MAP <- find_MAP(g,
-  optimizer = "brute_force", show_progress_bar = FALSE,
+  optimizer = "brute_force",
   save_all_perms = TRUE, return_probabilities = TRUE
 )
 g_MAP
