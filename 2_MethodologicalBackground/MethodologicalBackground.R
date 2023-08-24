@@ -6,22 +6,26 @@ p <- 5
 n <- 10
 
 get_plotted_matrix <- function(my_matrix, my_title) {
-  gips:::pretty_plot_matrix(my_matrix, title = my_title) +
-    geom_text(
-      aes(label = round(covariance, 1)),
-      fontface = "bold", size = 8
-    ) +
-    labs(fill = "covariance") +
-    theme(
-      legend.position = "none",
-      plot.title = element_text(size = 25),
-    ) +
-    scale_fill_gradient2(
-      low = "#F0EA3E", mid = "#A41836", high = "#95E956",
-      midpoint = 8.660486
+  suppressMessages( # message from ggplot2
+    gips:::pretty_plot_matrix(my_matrix, title = my_title) +
+      geom_text(
+        aes(label = round(covariance, 1)),
+        fontface = "bold", size = 8
+      ) +
+      labs(fill = "covariance") +
+      theme(
+        legend.position = "none",
+        plot.title = element_text(size = 25),
+      ) +
+      scale_fill_gradient2(
+        low = "#F0EA3E", mid = "#A41836", high = "#95E956",
+        midpoint = 8.660486
     )
+  )
 }
 
+
+# Section 2.1
 
 set.seed(2022)
 sigma_matrix <- matrix(
@@ -65,7 +69,7 @@ my_full_long_perm_ggplot <- get_plotted_matrix(
   bquote(atop("Example of a matrix" ~ bold("with long"), "permutation symmetry             "))
 )
 my_full_long_perm_ggplot
-# Figure 5 top tight:
+# Figure 5 top right:
 ggplot2::ggsave(
   file.path(".", "plots", "Methodological_Background_long_perm.png"),
   my_full_long_perm_ggplot,
@@ -108,7 +112,9 @@ ggplot2::ggsave(
 g <- gips(S, n, perm = "(12345)", was_mean_estimated = FALSE)
 summary(g)$n_parameters
 
-# 2.3
+
+# Section 2.3
+g <- gips(S, n, perm = "(12345)", was_mean_estimated = FALSE)
 summary(g)$n0
 
 g <- gips(S, n, perm = "()", was_mean_estimated = FALSE)
@@ -116,7 +122,8 @@ summary(g)$n0
 
 S_projected <- project_matrix(S, "(12345)")
 
-# 2.4
+
+# Section 2.4
 g <- gips(S, n, perm = "(12345)", was_mean_estimated = FALSE)
 exp(gips::log_posteriori_of_gips(g))
 
@@ -125,11 +132,12 @@ exp(gips::log_posteriori_of_gips(g2))
 
 compare_posteriories_of_perms(g, "(123)")
 
-# 2.5
+
+# Section 2.5
 g <- gips(S, n, was_mean_estimated = FALSE)
 
 set.seed(2022)
-g_MAP_MH_25 <- find_MAP(g, max_iter = 25, optimizer = "MH")
+g_MAP_MH_25 <- find_MAP(g, max_iter = 25, optimizer = "MH") # message is anticipated
 g_MAP_MH_25
 
 g_MAP_BF <- find_MAP(g, optimizer = "BF")

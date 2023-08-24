@@ -34,12 +34,13 @@ plot_cosmetic_modifications <- function(gg_plot_object) {
     ggplot2::theme(legend.position = "none")
 }
 
+
 ##########
 # Books
 
 data("oddbooks", package = "DAAG")
 
-head(oddbooks)
+head(oddbooks, 4)
 
 Z <- oddbooks[, c(1, 2, 3)]
 
@@ -49,8 +50,7 @@ p <- ncol(Z) # 3
 Z$height <- Z$height / sqrt(2) # A-series paper size have a height / breadth = sqrt(2)
 
 S <- cov(Z)
-d <- sum(diag(S)) / p
-g <- gips(S, number_of_observations, D_matrix = diag(d, p))
+g <- gips(S, number_of_observations)
 my_books_id_ggplot <- plot_cosmetic_modifications(plot(g, type = "heatmap")) +
   ggplot2::labs(
     title = "Standard MLE estimator",

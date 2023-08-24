@@ -37,8 +37,10 @@ plot_cosmetic_modifications <- function(gg_plot_object) {
     ggplot2::theme(legend.position = "none")
 }
 
+
 ##########
 # Aspirin
+
 data("aspirin", package = "HSAUR2")
 
 Z <- aspirin
@@ -79,9 +81,9 @@ g_MAP
 
 get_probabilities_from_gips(g_MAP)
 
-compare_posteriories_of_perms(g_MAP, "()")
-compare_posteriories_of_perms(g_MAP, "(12)")
 compare_posteriories_of_perms(g_MAP, "(34)")
+compare_posteriories_of_perms(g_MAP, "(12)")
+compare_posteriories_of_perms(g_MAP, "()")
 
 S_projected <- project_matrix(S, g_MAP)
 
