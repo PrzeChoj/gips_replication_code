@@ -3,14 +3,14 @@ library(dplyr)
 theme_set(theme_bw())
 
 # load data
-my_data_dir <- file.path(".", "3_PackageUsage", "3_2_HyperparametersInfluence", "data")
-load(file.path(my_data_dir, "matrices_8.rda"))
-files <- list.files(my_data_dir, "*.rda")
+DATADIR <- file.path(".", "3_PackageUsage", "3_2_HyperparametersInfluence", "data")
+load(file.path(DATADIR, "matrices_8.rda"))
+files <- list.files(DATADIR, "*.rda")
 files <- grep("job_[0-9]+_results_.*rda", files, value = TRUE)
 stopifnot(length(files) == 1)
 l <- list()
 for (i in 1:length(files)) {
-  load(file.path(my_data_dir, files[i]))
+  load(file.path(DATADIR, files[i]))
 }
 for (i in 1:length(files)) {
   l[[i]] <- get(paste0("job_results_df_", i - 1))

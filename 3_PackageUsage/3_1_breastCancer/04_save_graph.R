@@ -5,17 +5,17 @@ library(igraph)
 library(gRim)
 library(RBGL)
 
-my_data_dir <- file.path(".", "3_PackageUsage", "3_1_breastCancer", "data")
+DATADIR <- file.path(".", "3_PackageUsage", "3_1_breastCancer", "data")
 
-load(file.path(my_data_dir, "data2.rda"))
+load(file.path(DATADIR, "data2.rda"))
 S <- cov(data2)
 n <- nrow(data2)
 p <- ncol(data2)
 
 library(gips)
 
-load(file.path(my_data_dir, "g_MAP.rda"))
-load(file.path(my_data_dir, "g_python.rda"))
+load(file.path(DATADIR, "g_MAP.rda"))
+load(file.path(DATADIR, "g_python.rda"))
 
 
 
@@ -90,9 +90,9 @@ graph_python[[1]] # This is the smaller graph model; BIC: 9174
 # 9174 < 9381, so the smaller is better
 
 igraph_python <- graph_python[[2]]
-save(igraph_python, file = file.path(my_data_dir, "igraph_python.rda"))
-write.csv(graph_python[[3]], file.path(my_data_dir, "g_python_edge_list.csv"), row.names = FALSE, quote = FALSE)
-write.csv(graph_python[[4]], file.path(my_data_dir, "g_python_vertices_colors.csv"), row.names = FALSE, quote = FALSE)
+save(igraph_python, file = file.path(DATADIR, "igraph_python.rda"))
+write.csv(graph_python[[3]], file.path(DATADIR, "g_python_edge_list.csv"), row.names = FALSE, quote = FALSE)
+write.csv(graph_python[[4]], file.path(DATADIR, "g_python_vertices_colors.csv"), row.names = FALSE, quote = FALSE)
 
 
 # gips
@@ -102,6 +102,6 @@ graph_MAP[[1]] # This is the smaller graph model; BIC: 7807
 # 7807 < 8644, so the smaller is better
 
 igraph_MAP <- graph_MAP[[2]]
-save(igraph_MAP, file = file.path(my_data_dir, "igraph_MAP.rda"))
-write.csv(graph_MAP[[3]], file.path(my_data_dir, "g_MAP_edge_list.csv"), row.names = FALSE, quote = FALSE)
-write.csv(graph_MAP[[4]], file.path(my_data_dir, "g_MAP_vertices_colors.csv"), row.names = FALSE, quote = FALSE)
+save(igraph_MAP, file = file.path(DATADIR, "igraph_MAP.rda"))
+write.csv(graph_MAP[[3]], file.path(DATADIR, "g_MAP_edge_list.csv"), row.names = FALSE, quote = FALSE)
+write.csv(graph_MAP[[4]], file.path(DATADIR, "g_MAP_vertices_colors.csv"), row.names = FALSE, quote = FALSE)

@@ -3,12 +3,13 @@ library(magrittr)
 
 show_progress_bar <- TRUE
 
-load(file.path(".", "3_PackageUsage", "3_2_HyperparametersInfluence", "data", "matrices_8.rda"))
+DATADIR <- file.path(".", "3_PackageUsage", "3_1_breastCancer", "data")
+load(file.path(DATADIR, "matrices_8.rda"))
 
 p <- nrow(cov_large_str)
 n_points <- 30
 d_list <- c(0.1, 1, 10, 100)
-delta_list <- c(3, 10)
+delta_list <- c(3, 30)
 structures <- c("large", "moderate", "no")
 
 set.seed(2022)
