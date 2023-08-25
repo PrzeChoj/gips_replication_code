@@ -20,9 +20,8 @@ table_comparison[4, 1] <- my_sum$AIC # 7482.764
 my_sum$acceptance_rate # 0.195 %
 my_sum$whole_optimization_time # 1 hour 24 minutes
 
-
-
 plot(g_MAP, type = "both", logarithmic_x = TRUE)
+# We see the search did plateau
 
 
 # perm found by Graczyk et al. (the same algorithm, same parameters, code in Python):
@@ -37,7 +36,7 @@ g_python <- gips(S, 58,
   D_matrix = diag(1, p)
 )
 abline(log_posteriori_of_gips(g_python), 0, col = "green")
-# we see our MH was on the height of the python implementation around iteration 10000
+# We see our MH was on the height of the python implementation around 10000th iteration
 
 python_sum <- summary(g_python)
 table_comparison[1, 2] <- python_sum$n0 # 30
@@ -52,7 +51,6 @@ table_comparison
 # BIC          8741.694 9380.918
 # AIC          7482.764 7641.904
 
-compare_log_posteriories_of_perms(g_MAP, g_python, print_output = FALSE)
 compare_posteriories_of_perms(g_MAP, g_python, print_output = FALSE)
 # 1.60518*10^29 times ours more likely
 

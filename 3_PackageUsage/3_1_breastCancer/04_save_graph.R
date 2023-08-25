@@ -25,7 +25,7 @@ graph_from_g_MAP <- function(gips_object, my_quantile) {
   S_MAP <- project_matrix(S, gips_object)
   K <- solve(S_MAP)
   
-  # I know there is gRbase::cov2pcor(), bur there was sth wron with it on the cluster...
+  # We know there is gRbase::cov2pcor(), but there was sth wrong with it on the cluster we are using...
   PC_MAP <- -cov2cor(K)
   diag(PC_MAP) <- -diag(PC_MAP)
   
@@ -84,10 +84,10 @@ graph_from_g_MAP <- function(gips_object, my_quantile) {
 
 
 # python
-BIC(g_python) # This is the full model; BIC: 9380.918
-graph_python <- graph_from_g_MAP(g_python, 0.9112) # Graczyk et all said, they used alpha = cutoff_val = 0.15 = quantile(0.9112)
-graph_python[[1]] # This is the smaller graph model; BIC: 9174.331
-# 9174.331 < 9380.918, so the smaller is better
+BIC(g_python) # This is the full model; BIC: 9381
+graph_python <- graph_from_g_MAP(g_python, 0.9112) # Graczyk et al said, they used alpha = cutoff_val = 0.15 = quantile(0.9112)
+graph_python[[1]] # This is the smaller graph model; BIC: 9174
+# 9174 < 9381, so the smaller is better
 
 igraph_python <- graph_python[[2]]
 save(igraph_python, file = file.path(my_data_dir, "igraph_python.rda"))
@@ -96,10 +96,10 @@ write.csv(graph_python[[4]], file.path(my_data_dir, "g_python_vertices_colors.cs
 
 
 # gips
-BIC(g_MAP) # This is the full model; BIC: 8644.2437887557
+BIC(g_MAP) # This is the full model; BIC: 8644
 graph_MAP <- graph_from_g_MAP(g_MAP, 0.7)
-graph_MAP[[1]] # This is the smaller graph model; BIC: 7806.57917530882
-# 7806.57917530882 < 8644.2437887557, so the smaller is better
+graph_MAP[[1]] # This is the smaller graph model; BIC: 7807
+# 7807 < 8644, so the smaller is better
 
 igraph_MAP <- graph_MAP[[2]]
 save(igraph_MAP, file = file.path(my_data_dir, "igraph_MAP.rda"))
