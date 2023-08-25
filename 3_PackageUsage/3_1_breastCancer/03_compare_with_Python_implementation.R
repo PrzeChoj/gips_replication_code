@@ -18,7 +18,7 @@ table_comparison[3, 1] <- my_sum$BIC # 8741.694
 table_comparison[4, 1] <- my_sum$AIC # 7482.764
 
 my_sum$acceptance_rate # 0.195 %
-my_sum$whole_optimization_time # 1 hour 24 minutes
+my_sum$whole_optimization_time # 1 hour 25 minutes
 
 plot(g_MAP, type = "both", logarithmic_x = TRUE)
 # We see the search did plateau

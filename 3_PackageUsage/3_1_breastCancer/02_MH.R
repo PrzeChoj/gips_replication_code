@@ -1,4 +1,4 @@
-# 1 hour 24 minutes on AMD EPYC 7413 Processor (single core, because multithreading would not help here)
+# 1 hour 25 minutes on AMD EPYC 7413 Processor (single core, because multithreading would not help here)
 # 2 hours 50 minutes on MacBook Air 2017
 
 DATADIR <- file.path(".", "3_PackageUsage", "3_1_breastCancer", "data")
