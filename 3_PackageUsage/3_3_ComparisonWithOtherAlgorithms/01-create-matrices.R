@@ -1,5 +1,4 @@
-# There are minimal differences in overwritten matrices in line 14
-# This is so that those will be more exact.
+DATADIR <- file.path(".", "3_PackageUsage", "3_3_ComparisonWithOtherAlgorithms", "data")
 
 change_no_zeros_to_zeros <- function(no_zeros_matrix) {
   with_zeros_matrix <- no_zeros_matrix
@@ -11,8 +10,9 @@ change_no_zeros_to_zeros <- function(no_zeros_matrix) {
 
 symmetric_solve <- function(symmetric_matrix) {
   solved_symmetric_matrix <- solve(symmetric_matrix)
-  (solved_symmetric_matrix + t(solved_symmetric_matrix)) / 2
+  (solved_symmetric_matrix + t(solved_symmetric_matrix)) / 2 # this averaging makes almost no difference
 }
+
 
 p <- 50 # Dimensions of created covariance matrices.
 n <- 50
@@ -58,5 +58,5 @@ cov_no_str_zeros <- symmetric_solve(prec_no_str_zeros)
 
 save(cov_large_str_no_zeros, cov_large_str_zeros, cov_mod_str_no_zeros,
   cov_mod_str_zeros, cov_no_str_no_zeros, cov_no_str_zeros,
-  file = file.path(".", "3_PackageUsage", "3_3_ComparisonWithOtherAlgorithms", "data", paste0("matrices_", p, ".rda"))
+  file = file.path(DATADIR, paste0("matrices_", p, ".rda"))
 )

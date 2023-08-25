@@ -1,10 +1,11 @@
-# 1 h 43 min on AMD EPYC 7413 Processor, 40 cores
+# 1 h 30 min on AMD EPYC 7413 Processor, 45 cores
 
-source(file.path(".", "3_PackageUsage", "3_3_ComparisonWithOtherAlgorithms", "02-setup-and-functions.R"))
+DATADIR <- file.path(".", "3_PackageUsage", "3_3_ComparisonWithOtherAlgorithms", "data")
+source(file.path(DATADIR, "..", "02-setup-and-functions.R"))
 
 library(parallel)
 numCores <- detectCores()
-expected_cores <- 40
+expected_cores <- 45
 stopifnot(numCores >= expected_cores)
 
 task_ids <- 1:nrow(tasks) # 180 tasks
