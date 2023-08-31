@@ -36,7 +36,7 @@ graph_from_g_MAP <- function(gips_object, my_quantile) {
   
   my_graph <- graph_from_adjacency_matrix(adj_mat, mode = "undirected")
   
-  # BIC; can be costly
+  # BIC:
   maxCliques_G <- maxClique(as_graphnel(my_graph))$maxCliques
   MLE_MAP <- ggmfit(S_MAP, n = n, maxCliques_G)
   kG <- length(unique(c(S_MAP * adj_mat))) - 1
@@ -97,9 +97,9 @@ write.csv(graph_python[[4]], file.path(DATADIR, "g_python_vertices_colors.csv"),
 
 # gips
 BIC(g_MAP) # This is the full model; BIC: 8644
-graph_MAP <- graph_from_g_MAP(g_MAP, 0.7)
-graph_MAP[[1]] # This is the smaller graph model; BIC: 7807
-# 7807 < 8644, so the smaller is better
+graph_MAP <- graph_from_g_MAP(g_MAP, 0.7) # 0.7 minimizes the BIC
+graph_MAP[[1]] # This is smaller graph model; BIC: 7807
+# 7807 < 8644, so smaller is better
 
 igraph_MAP <- graph_MAP[[2]]
 save(igraph_MAP, file = file.path(DATADIR, "igraph_MAP.rda"))

@@ -4,7 +4,7 @@ library(rags2ridges) # requires installing dependencies from BioConductor
 
 N_TRIAL <- 10
 GIPS_N_ITER <- 300000
-DATADIR <- file.path(".", "3_PackageUsage", "3_3_ComparisonWithOtherAlgorithms", "data")
+DATADIR <- file.path(".", "3_PackageUsage", "3_3_ComparisonWithOtherMethods", "data")
 
 METHODS <- c("rags2ridges", "huge", "gips")
 

@@ -15,6 +15,6 @@ set.seed(2022)
 g_MAP <- find_MAP(g, max_iter = 150000, optimizer = "MH")
 
 my_sum <- summary(g_MAP)
-my_sum$whole_optimization_time # 1 h 24 min
+my_sum$whole_optimization_time # 1 h 25 min
 
 save(g_MAP, file = file.path(DATADIR, "g_MAP.rda"))

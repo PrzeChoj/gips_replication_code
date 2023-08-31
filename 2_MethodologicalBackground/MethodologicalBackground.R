@@ -93,7 +93,7 @@ ggplot2::ggsave(
   units = "cm"
 )
 
-# no symetry
+# no symmetry
 my_no_perm_ggplot <- get_plotted_matrix(
   S,
   bquote(atop("Example of a matrix" ~ bold("without"), "permutation symmetry          "))

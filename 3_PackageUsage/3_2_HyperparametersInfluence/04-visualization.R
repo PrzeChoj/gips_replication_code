@@ -105,9 +105,6 @@ plot_for_matrix_structure <- function(my_matrix_structure, x_axis_type, hide_leg
   out_plot
 }
 
-structures <- c("large", "moderate", "no")
-
-
 my_heatmap_true_large <- plot_heatmap_true(gips:::pretty_plot_matrix(cov_large_str,
   bquote(atop("Heatmap of the true covariance matrix", bold("Large structure                                  ")))))
 my_heatmap_true_moderate <- plot_heatmap_true(gips:::pretty_plot_matrix(cov_moderate_str,
@@ -137,8 +134,9 @@ ggsave(
   units = "cm"
 )
 
-hide_legend <- c(FALSE, TRUE, TRUE)
-plot_width <- c(7.8, 7, 7)
+structures <- c("no", "moderate", "large")
+hide_legend <- c(TRUE, TRUE, FALSE)
+plot_width <- c(7, 7, 7.8)
 x_axis_type <- "n_dim"
 
 ggsave(

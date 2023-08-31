@@ -1,6 +1,6 @@
 # 1 h 30 min on AMD EPYC 7413 Processor, 45 cores
 
-DATADIR <- file.path(".", "3_PackageUsage", "3_3_ComparisonWithOtherAlgorithms", "data")
+DATADIR <- file.path(".", "3_PackageUsage", "3_3_ComparisonWithOtherMethods", "data")
 source(file.path(DATADIR, "..", "02-setup-and-functions.R"))
 
 library(parallel)
