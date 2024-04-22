@@ -143,7 +143,7 @@ ggsave(
   file.path(".", "plots", paste0("hyper_params_influence_", x_axis_type, "_", structures[1], ".png")),
   plot_for_matrix_structure(structures[1], x_axis_type, hide_legend[1],
     title = bquote(atop("Effect of parameters on a posteriori structure distribution",
-                        "for a matrix with" ~ bold("no") ~ "structure                                       "))),
+                        "for a matrix with" ~ bold("no") ~ "structure                                            "))),
   width = plot_width[1]
 )
 ggsave(
@@ -157,6 +157,6 @@ ggsave(
   file.path(".", "plots", paste0("hyper_params_influence_", x_axis_type, "_", structures[3], ".png")),
   plot_for_matrix_structure(structures[3], x_axis_type, hide_legend[3],
     title = bquote(atop("Effect of parameters on a posteriori structure distribution",
-                        "for a matrix with" ~ bold("large") ~ "structure                                            "))),
+                        "for a matrix with" ~ bold("large") ~ "structure                                       "))),
   width = plot_width[3]
 )
