@@ -59,7 +59,7 @@ plot_heatmap_true <- function(my_ggplot){
 
 plot_for_matrix_structure <- function(my_matrix_structure, x_axis_type, hide_legend, title) {
   stopifnot(x_axis_type %in% c("n0", "n_dim"))
-  
+
   if (x_axis_type == "n0"){
     my_df <- n0_df_forplot
     true_line <- ifelse(my_matrix_structure == "large", 1,
@@ -96,12 +96,12 @@ plot_for_matrix_structure <- function(my_matrix_structure, x_axis_type, hide_leg
     lims(y = c(0, 1)) +
     scale_x_continuous(breaks = x_breaks) +
     theme(title = element_text(size = 15))
-  
+
   if (hide_legend){
     out_plot <- out_plot +
       theme(legend.position = "none")
   }
-  
+
   out_plot
 }
 
@@ -142,21 +142,21 @@ x_axis_type <- "n_dim"
 ggsave(
   file.path(".", "plots", paste0("hyper_params_influence_", x_axis_type, "_", structures[1], ".png")),
   plot_for_matrix_structure(structures[1], x_axis_type, hide_legend[1],
-    title = bquote(atop("Affect of parameters on a posteriori structure distribution",
-                        "for a matrix with" ~ bold("large") ~ "structure                                       "))),
+    title = bquote(atop("Effect of parameters on a posteriori structure distribution",
+                        "for a matrix with" ~ bold("no") ~ "structure                                       "))),
   width = plot_width[1]
 )
 ggsave(
   file.path(".", "plots", paste0("hyper_params_influence_", x_axis_type, "_", structures[2], ".png")),
   plot_for_matrix_structure(structures[2], x_axis_type, hide_legend[2],
-    title = bquote(atop("Affect of parameters on a posteriori structure distribution",
+    title = bquote(atop("Effect of parameters on a posteriori structure distribution",
                         "for a matrix with" ~ bold("moderate") ~ "structure                                "))),
   width = plot_width[2]
 )
 ggsave(
   file.path(".", "plots", paste0("hyper_params_influence_", x_axis_type, "_", structures[3], ".png")),
   plot_for_matrix_structure(structures[3], x_axis_type, hide_legend[3],
-    title = bquote(atop("Affect of parameters on a posteriori structure distribution",
-                        "for a matrix with" ~ bold("no") ~ "structure                                            "))),
+    title = bquote(atop("Effect of parameters on a posteriori structure distribution",
+                        "for a matrix with" ~ bold("large") ~ "structure                                            "))),
   width = plot_width[3]
 )
