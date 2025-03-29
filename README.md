@@ -2,9 +2,9 @@
 
 This repository contains replication codes for the article about the `gips` R package.
 
-The article is available [HERE on arXiv](https://arxiv.org/abs/2307.00790).
+The article is available on [Journal of Statistical Software](https://doi.org/10.18637/jss.v112.i07) and [on arXiv](https://arxiv.org/abs/2307.00790).
 
-The code is design to run under `gips` 1.2.1.
+The code is design to run under `gips` 1.2.3.
 
 To run it, install the following packages (in this order):
 ```
